@@ -6,8 +6,12 @@ export default function Answer(props){
 
     function doNothing(){
         console.log("the game has ended")
-      }
+    }
     
+    let newAnswer = props.answerText.replace(/&quot;glass&quot;/g, "'")
+    newAnswer = newAnswer.replace(/&quot;/g, "'")
+    newAnswer = newAnswer.replace(/&#039;/g, "'")
+    newAnswer = newAnswer.replace(/&deg;/g, "°")
 
     if (!props.gameEnded){
        clickedStyle  = {backgroundColor : "#D6DBF5",
@@ -31,7 +35,7 @@ export default function Answer(props){
         <div className="option" 
             onClick={!props.gameEnded ? ()=>props.onClick(props.id) : doNothing} 
             style={props.clicked ? clickedStyle : normalStyle}>  
-            {props.answerText}
+            {newAnswer}
         </div>               
     )
 }
