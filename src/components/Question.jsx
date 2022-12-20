@@ -10,6 +10,7 @@ export default function Question(props){
     let newQuestion = props.question.replace(/&quot;glass&quot;/g, "'")
     newQuestion = newQuestion.replace(/&quot;/g, "'")
     newQuestion = newQuestion.replace(/&#039;/g, "'")
+    newQuestion = newQuestion.replace(/&deg;/g, "°")
 
     return(
         <div className="questionDiv">
